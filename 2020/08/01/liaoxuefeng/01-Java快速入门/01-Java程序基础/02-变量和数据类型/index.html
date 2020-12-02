@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,zh-HK,zh-TW,default">
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>Java-01-01-02-变量和数据类型 - 何若のblog</title>
+  
+    <meta name="keywords" content="Java">
+  
+
+  
+    <meta name="description" content="如题">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+</head>
+
+<body>
+  
+
+<header id="l_header" class="l_header auto floatable show" style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索" />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div id="l_body">
+    <div id="l_cover">
+  
+    
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">Volantis</p>
+    
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+          
+            <a href="/v4/getting-started/"
+              
+              
+              id="v4getting-started">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg'><p>文档</p>
+            </a>
+          
+            <a href="/faqs/"
+              
+              
+              id="faqs">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg'><p>帮助</p>
+            </a>
+          
+            <a href="/examples/"
+              
+              
+              id="examples">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f396.svg'><p>示例</p>
+            </a>
+          
+            <a href="/contributors/"
+              
+              
+              id="contributors">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f389.svg'><p>社区</p>
+            </a>
+          
+            <a href="/archives/"
+              
+              
+              id="archives">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg'><p>博客</p>
+            </a>
+          
+            <a target="_blank" rel="noopener" href="https://github.com/volantis-x/hexo-theme-volantis/"
+              
+              
+              id="https:githubcomvolantis-xhexo-theme-volantis">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f9ec.svg'><p>源码</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+    <div id='safearea'>
+      <div class='body-wrapper' id="pjax-container">
+        
+
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        Java-01-01-02-变量和数据类型
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' target="_blank" href="https://www.heruo.me/" rel="nofollow noopener">
+    <img no-lazy src="">
+    <p>何若</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/Java/">Java</a><span class="sep"></span><a class="category-link" href="/categories/Java/01-Java%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">01-Java快速入门</a><span class="sep"></span><a class="category-link" href="/categories/Java/01-Java%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/01-Java%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/">--01-Java程序基础</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年8月1日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="Java-01-01-02-变量和数据类型" data-path="/2020/08/01/liaoxuefeng/01-Java%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/01-Java%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/02-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a><font color=red>变量</font></h1><p>什么是变量？</p>
+<p>变量就是初中数学的代数的概念，例如一个简单的方程，x，y都是变量：</p>
+<p>$y=x^2+1$</p>
+<p>在Java中，变量分为两种：基本类型的变量和引用类型的变量。</p>
+<p>我们先讨论基本类型的变量。</p>
+<p>在Java中，变量必须先定义后使用，在定义变量的时候，可以给它一个初始值。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>上述语句定义了一个整型<code>int</code>类型的变量，名称为<code>x</code>，初始值为<code>1</code>。</p>
+<p>不写初始值，就相当于给它指定了默认值。默认值总是<code>0</code>。</p>
+<p>来看一个完整的定义变量，然后打印变量值的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义并打印变量 </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> x = <span class="number">100</span>; <span class="comment">// 定义int类型变量x，并赋予初始值100</span></span><br><span class="line">        System.out.println(x); <span class="comment">// 打印该变量的值</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>变量的一个重要特点是可以重新赋值。例如，对变量<code>x</code>，先赋值<code>100</code>，再赋值<code>200</code>，观察两次打印的结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 重新赋值变量</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> x = <span class="number">100</span>; <span class="comment">// 定义int类型变量x，并赋予初始值100</span></span><br><span class="line">        System.out.println(x); <span class="comment">// 打印该变量的值，观察是否为100</span></span><br><span class="line">        x = <span class="number">200</span>; <span class="comment">// 重新赋值为200</span></span><br><span class="line">        System.out.println(x); <span class="comment">// 打印该变量的值，观察是否为200</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意到第一次定义变量<code>x</code>的时候，需要指定变量类型<code>int</code>，因此使用语句<code>int x = 100;</code>。而第二次重新赋值的时候，变量<code>x</code>已经存在了，不能再重复定义，因此不能指定变量类型<code>int</code>，必须使用语句<code>x = 200;</code>。</p>
+<p>变量不但可以重新赋值，还可以赋值给其他变量。让我们来看一个例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 变量之间的赋值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">100</span>; <span class="comment">// 定义变量n，同时赋值为100</span></span><br><span class="line">        System.out.println(<span class="string">&quot;n = &quot;</span> + n); <span class="comment">// 打印n的值</span></span><br><span class="line"></span><br><span class="line">        n = <span class="number">200</span>; <span class="comment">// 变量n赋值为200</span></span><br><span class="line">        System.out.println(<span class="string">&quot;n = &quot;</span> + n); <span class="comment">// 打印n的值</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> x = n; <span class="comment">// 变量x赋值为n（n的值为200，因此赋值后x的值也是200）</span></span><br><span class="line">        System.out.println(<span class="string">&quot;x = &quot;</span> + x); <span class="comment">// 打印x的值</span></span><br><span class="line"></span><br><span class="line">        x = x + <span class="number">100</span>; <span class="comment">// 变量x赋值为x+100（x的值为200，因此赋值后x的值是200+100=300）</span></span><br><span class="line">        System.out.println(<span class="string">&quot;x = &quot;</span> + x); <span class="comment">// 打印x的值</span></span><br><span class="line">        System.out.println(<span class="string">&quot;n = &quot;</span> + n); <span class="comment">// 再次打印n的值，n应该是200还是300？</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们一行一行地分析代码执行流程：</p>
+<p>执行<code>int n = 100;</code>，该语句定义了变量<code>n</code>，同时赋值为<code>100</code>，因此，JVM在内存中为变量<code>n</code>分配一个“存储单元”，填入值<code>100</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">      n</span><br><span class="line">      │</span><br><span class="line">      ▼</span><br><span class="line">┌───┬───┬───┬───┬───┬───┬───┐</span><br><span class="line">│   │100│   │   │   │   │   │</span><br><span class="line">└───┴───┴───┴───┴───┴───┴───┘</span><br></pre></td></tr></table></figure>
+
+<p>执行<code>n = 200;</code>时，JVM把<code>200</code>写入变量<code>n</code>的存储单元，因此，原有的值被覆盖，现在<code>n</code>的值为<code>200</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">      n</span><br><span class="line">      │</span><br><span class="line">      ▼</span><br><span class="line">┌───┬───┬───┬───┬───┬───┬───┐</span><br><span class="line">│   │200│   │   │   │   │   │</span><br><span class="line">└───┴───┴───┴───┴───┴───┴───┘</span><br></pre></td></tr></table></figure>
+
+<p>执行<code>int x = n;</code>时，定义了一个新的变量<code>x</code>，同时对<code>x</code>赋值，因此，JVM需要<em>新分配</em>一个存储单元给变量<code>x</code>，并写入和变量<code>n</code>一样的值，结果是变量<code>x</code>的值也变为<code>200</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">      n           x</span><br><span class="line">      │           │</span><br><span class="line">      ▼           ▼</span><br><span class="line">┌───┬───┬───┬───┬───┬───┬───┐</span><br><span class="line">│   │200│   │   │200│   │   │</span><br><span class="line">└───┴───┴───┴───┴───┴───┴───┘</span><br></pre></td></tr></table></figure>
+
+<p>执行<code>x = x + 100;</code>时，JVM首先计算等式右边的值<code>x + 100</code>，结果为<code>300</code>（因为此刻<code>x</code>的值为<code>200</code>），然后，将结果<code>300</code>写入<code>x</code>的存储单元，因此，变量<code>x</code>最终的值变为<code>300</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">      n           x</span><br><span class="line">      │           │</span><br><span class="line">      ▼           ▼</span><br><span class="line">┌───┬───┬───┬───┬───┬───┬───┐</span><br><span class="line">│   │200│   │   │300│   │   │</span><br><span class="line">└───┴───┴───┴───┴───┴───┴───┘</span><br></pre></td></tr></table></figure>
+
+<p>可见，变量可以反复赋值。注意，等号<code>=</code>是赋值语句，不是数学意义上的相等，否则无法解释<code>x = x + 100</code>。</p>
+<h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a><font color=red>基本数据类型</font></h1><p>基本数据类型是CPU可以直接进行运算的类型。Java定义了以下几种基本数据类型：</p>
+<ul>
+<li>整数类型：byte，short，int，long</li>
+<li>浮点数类型：float，double</li>
+<li>字符类型：char</li>
+<li>布尔类型：boolean</li>
+</ul>
+<p>Java定义的这些基本数据类型有什么区别呢？要了解这些区别，我们就必须简单了解一下计算机内存的基本结构。</p>
+<p>计算机内存的最小存储单元是字节（byte），一个字节就是一个8位二进制数，即8个bit。它的二进制表示范围从<code>00000000</code> ~ <code>11111111</code>，换算成十进制是<code>0</code> ~ <code>255</code>，换算成十六进制是<code>00</code> ~ <code>ff</code>。</p>
+<p>内存单元从0开始编号，称为内存地址。每个内存单元可以看作一间房间，内存地址就是门牌号。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  0   1   2   3   4   5   6  ...</span><br><span class="line">┌───┬───┬───┬───┬───┬───┬───┐</span><br><span class="line">│   │   │   │   │   │   │   │...</span><br><span class="line">└───┴───┴───┴───┴───┴───┴───┘</span><br></pre></td></tr></table></figure>
+
+<p>一个字节是1byte，1024字节是1K，1024K是1M，1024M是1G，1024G是1T。一个拥有4T内存的计算机的字节数量就是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4T &#x3D; 4 x 1024G</span><br><span class="line">   &#x3D; 4 x 1024 x 1024M</span><br><span class="line">   &#x3D; 4 x 1024 x 1024 x 1024K</span><br><span class="line">   &#x3D; 4 x 1024 x 1024 x 1024 x 1024</span><br><span class="line">   &#x3D; 4398046511104</span><br></pre></td></tr></table></figure>
+
+<p>不同的数据类型占用的字节数不一样。我们看一下Java基本数据类型占用的字节数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">       ┌───┐</span><br><span class="line">  byte │   │</span><br><span class="line">       └───┘</span><br><span class="line">       ┌───┬───┐</span><br><span class="line"> short │   │   │</span><br><span class="line">       └───┴───┘</span><br><span class="line">       ┌───┬───┬───┬───┐</span><br><span class="line">   int │   │   │   │   │</span><br><span class="line">       └───┴───┴───┴───┘</span><br><span class="line">       ┌───┬───┬───┬───┬───┬───┬───┬───┐</span><br><span class="line">  long │   │   │   │   │   │   │   │   │</span><br><span class="line">       └───┴───┴───┴───┴───┴───┴───┴───┘</span><br><span class="line">       ┌───┬───┬───┬───┐</span><br><span class="line"> float │   │   │   │   │</span><br><span class="line">       └───┴───┴───┴───┘</span><br><span class="line">       ┌───┬───┬───┬───┬───┬───┬───┬───┐</span><br><span class="line">double │   │   │   │   │   │   │   │   │</span><br><span class="line">       └───┴───┴───┴───┴───┴───┴───┴───┘</span><br><span class="line">       ┌───┬───┐</span><br><span class="line">  char │   │   │</span><br><span class="line">       └───┴───┘</span><br></pre></td></tr></table></figure>
+
+<p><code>byte</code>恰好就是一个字节，而<code>long</code>和<code>double</code>需要8个字节。</p>
+<h1 id="整型"><a href="#整型" class="headerlink" title="整型"></a><font color=red>整型</font></h1><p>对于整型类型，Java只定义了带符号的整型，因此，最高位的bit表示符号位（0表示正数，1表示负数）。各种整型能表示的最大范围如下：</p>
+<ul>
+<li>byte：-128 ~ 127</li>
+<li>short: -32768 ~ 32767</li>
+<li>int: -2147483648 ~ 2147483647</li>
+<li>long: -9223372036854775808 ~ 9223372036854775807</li>
+</ul>
+<p>我们来看定义整型的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义整型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">2147483647</span>;</span><br><span class="line">        <span class="keyword">int</span> i2 = -<span class="number">2147483648</span>;</span><br><span class="line">        <span class="keyword">int</span> i3 = <span class="number">2_000_000_000</span>; <span class="comment">// 加下划线更容易识别</span></span><br><span class="line">        <span class="keyword">int</span> i4 = <span class="number">0xff0000</span>; <span class="comment">// 十六进制表示的16711680</span></span><br><span class="line">        <span class="keyword">int</span> i5 = <span class="number">0b1000000000</span>; <span class="comment">// 二进制表示的512</span></span><br><span class="line">        <span class="keyword">long</span> l = <span class="number">9000000000000000000L</span>; <span class="comment">// long型的结尾需要加L</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>特别注意：同一个数的不同进制的表示是完全相同的，例如<code>15</code>=<code>0xf</code>＝<code>0b1111</code>。</p>
+<h1 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a><font color=red>浮点型</font></h1><p>浮点类型的数就是小数，因为小数用科学计数法表示的时候，小数点是可以“浮动”的，如1234.5可以表示成$12.345<em>10^2$，也可以表示成$1.2345</em>10^3$，所以称为浮点数。</p>
+<p>下面是定义浮点数的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> f1 = <span class="number">3.14f</span>;</span><br><span class="line"><span class="keyword">float</span> f2 = <span class="number">3.14e38f</span>; <span class="comment">// 科学计数法表示的3.14x10^38</span></span><br><span class="line"><span class="keyword">double</span> d = <span class="number">1.79e308</span>;</span><br><span class="line"><span class="keyword">double</span> d2 = -<span class="number">1.79e308</span>;</span><br><span class="line"><span class="keyword">double</span> d3 = <span class="number">4.9e-324</span>; <span class="comment">// 科学计数法表示的4.9x10^-324</span></span><br></pre></td></tr></table></figure>
+
+<p>对于<code>float</code>类型，需要加上<code>f</code>后缀。</p>
+<p>浮点数可表示的范围非常大，<code>float</code>类型可最大表示$3.4<em>10^{38}$，而<code>double</code>类型可最大表示$1.79</em>10^{308}$。</p>
+<h1 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a><font color=red>布尔类型</font></h1><p>布尔类型<code>boolean</code>只有<code>true</code>和<code>false</code>两个值，布尔类型总是关系运算的计算结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> b1 = <span class="keyword">true</span>;</span><br><span class="line"><span class="keyword">boolean</span> b2 = <span class="keyword">false</span>;</span><br><span class="line"><span class="keyword">boolean</span> isGreater = <span class="number">5</span> &gt; <span class="number">3</span>; <span class="comment">// 计算结果为true</span></span><br><span class="line"><span class="keyword">int</span> age = <span class="number">12</span>;</span><br><span class="line"><span class="keyword">boolean</span> isAdult = age &gt;= <span class="number">18</span>; <span class="comment">// 计算结果为false</span></span><br></pre></td></tr></table></figure>
+
+<p>Java语言对布尔类型的存储并没有做规定，因为理论上存储布尔类型只需要1 bit，但是通常JVM内部会把<code>boolean</code>表示为4字节整数。</p>
+<h1 id="字符类型"><a href="#字符类型" class="headerlink" title="字符类型"></a><font color=red>字符类型</font></h1><p>字符类型<code>char</code>表示一个字符。Java的<code>char</code>类型除了可表示标准的ASCII外，还可以表示一个Unicode字符：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字符类型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span> a = <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">        <span class="keyword">char</span> zh = <span class="string">&#x27;中&#x27;</span>;</span><br><span class="line">        System.out.println(a);</span><br><span class="line">        System.out.println(zh);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意<code>char</code>类型使用单引号<code>&#39;</code>，且仅有一个字符，要和双引号<code>&quot;</code>的字符串类型区分开。</p>
+<h1 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a><font color=red>引用类型</font></h1><p>除了上述基本类型的变量，剩下的都是引用类型。例如，引用类型最常用的就是<code>String</code>字符串：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">&quot;hello&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>引用类型的变量类似于C语言的指针，它内部存储一个“地址”，指向某个对象在内存的位置，后续我们介绍类的概念时会详细讨论。</p>
+<h1 id="常量"><a href="#常量" class="headerlink" title="常量"></a><font color=red>常量</font></h1><p>定义变量的时候，如果加上<code>final</code>修饰符，这个变量就变成了常量：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">double</span> PI = <span class="number">3.14</span>; <span class="comment">// PI是一个常量</span></span><br><span class="line"><span class="keyword">double</span> r = <span class="number">5.0</span>;</span><br><span class="line"><span class="keyword">double</span> area = PI * r * r;</span><br><span class="line">PI = <span class="number">300</span>; <span class="comment">// compile error!</span></span><br></pre></td></tr></table></figure>
+
+<p>常量在定义时进行初始化后就不可再次赋值，再次赋值会导致编译错误。</p>
+<p>常量的作用是用有意义的变量名来避免魔术数字（Magic number），例如，不要在代码中到处写<code>3.14</code>，而是定义一个常量。如果将来需要提高计算精度，我们只需要在常量的定义处修改，例如，改成<code>3.1416</code>，而不必在所有地方替换<code>3.14</code>。</p>
+<p>根据习惯，常量名通常全部大写。</p>
+<h1 id="var关键字"><a href="#var关键字" class="headerlink" title="var关键字"></a><font color=red>var关键字</font></h1><p>有些时候，类型的名字太长，写起来比较麻烦。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br></pre></td></tr></table></figure>
+
+<p>这个时候，如果想省略变量类型，可以使用<code>var</code>关键字：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sb = <span class="keyword">new</span> StringBuilder();</span><br></pre></td></tr></table></figure>
+
+<p>编译器会根据赋值语句自动推断出变量<code>sb</code>的类型是<code>StringBuilder</code>。对编译器来说，语句：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sb = <span class="keyword">new</span> StringBuilder();</span><br></pre></td></tr></table></figure>
+
+<p>实际上会自动变成：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br></pre></td></tr></table></figure>
+
+<p>因此，使用<code>var</code>定义变量，仅仅是少写了变量类型而已。</p>
+<h1 id="变量的作用范围"><a href="#变量的作用范围" class="headerlink" title="变量的作用范围"></a><font color=red>变量的作用范围</font></h1><p>在Java中，多行语句用{ }括起来。很多控制语句，例如条件判断和循环，都以{ }作为它们自身的范围，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (...) &#123; <span class="comment">// if开始</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">while</span> (...) &#123; <span class="comment">// while 开始</span></span><br><span class="line">        ...</span><br><span class="line">        <span class="keyword">if</span> (...) &#123; <span class="comment">// if开始</span></span><br><span class="line">            ...</span><br><span class="line">        &#125; <span class="comment">// if结束</span></span><br><span class="line">        ...</span><br><span class="line">    &#125; <span class="comment">// while结束</span></span><br><span class="line">    ...</span><br><span class="line">&#125; <span class="comment">// if结束</span></span><br></pre></td></tr></table></figure>
+
+<p>只要正确地嵌套这些{ }，编译器就能识别出语句块的开始和结束。而在语句块中定义的变量，它有一个作用域，就是从定义处开始，到语句块结束。超出了作用域引用这些变量，编译器会报错。举个例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>; <span class="comment">// 变量i从这里开始定义</span></span><br><span class="line">    ...</span><br><span class="line">    &#123;</span><br><span class="line">        ...</span><br><span class="line">        <span class="keyword">int</span> x = <span class="number">1</span>; <span class="comment">// 变量x从这里开始定义</span></span><br><span class="line">        ...</span><br><span class="line">        &#123;</span><br><span class="line">            ...</span><br><span class="line">            String s = <span class="string">&quot;hello&quot;</span>; <span class="comment">// 变量s从这里开始定义</span></span><br><span class="line">            ...</span><br><span class="line">        &#125; <span class="comment">// 变量s作用域到此结束</span></span><br><span class="line">        ...</span><br><span class="line">        <span class="comment">// 注意，这是一个新的变量s，它和上面的变量同名，</span></span><br><span class="line">        <span class="comment">// 但是因为作用域不同，它们是两个不同的变量:</span></span><br><span class="line">        String s = <span class="string">&quot;hi&quot;</span>;</span><br><span class="line">        ...</span><br><span class="line">    &#125; <span class="comment">// 变量x和s作用域到此结束</span></span><br><span class="line">    ...</span><br><span class="line">&#125; <span class="comment">// 变量i作用域到此结束</span></span><br></pre></td></tr></table></figure>
+
+<p>定义变量时，要遵循作用域最小化原则，尽量将变量定义在尽可能小的作用域，并且，不要重复使用变量名。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a><font color=red>小结</font></h1><p>Java提供了两种变量类型：基本类型和引用类型</p>
+<p>基本类型包括整型，浮点型，布尔型，字符型。</p>
+<p>变量可重新赋值，等号是赋值语句，不是数学意义的等号。</p>
+<p>常量在初始化后不可重新赋值，使用常量便于理解程序意图。</p>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://example.com/2020/08/01/liaoxuefeng/01-Java%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/01-Java%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/02-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/>http://example.com/2020/08/01/liaoxuefeng/01-Java%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/01-Java%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/02-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+        <div class='donate'>
+          <div class='imgs'>
+            
+              <img src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png'>
+            
+              <img src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png'>
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-01T20:12:09+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年12月1日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Java</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/08/01/liaoxuefeng/01-Java%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/01-Java%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/02-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/&title=Java-01-01-02-变量和数据类型 - 何若のblog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2020/08/01/liaoxuefeng/01-Java%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/01-Java%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/02-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/&title=Java-01-01-02-变量和数据类型 - 何若のblog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/08/01/liaoxuefeng/01-Java%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/01-Java%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/02-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/&title=Java-01-01-02-变量和数据类型 - 何若のblog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        
+        <div class='hoverbox'>
+          <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="data:image/png;base64,666"></a>
+          <div class='target'>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAdgAAAHYCAAAAADLsqZFAAAH7UlEQVR42u3aQXLjOBAEQP//07v3jfCKVd3QxBCJm2yKBDuhA6rx84/xyvGjBGANsAZYA6wBFqwSvBz2pxyfvv/0//+97tPnT9f9+sLh8+OCLteh9gALFixYsGDBggULFizYS2DTF0gL9vRF2wKnCyMFfnr/9P2nCwwsWLBgwYIFCxYsWLBgb4d9utGeBgHTQOQUdFvwNFBJF9DTeoAFCxYsWLBgwYIFCxYs2G5j/vRFtgqxNY92PtODBGDBggULFixYsGDBggUL9s8EFKca4+1C2n6f9L7TRjtYsGDBggULFixYsGDBgv1/2BSkLcT0e9OGeNtYTxdOG6TUPxCwYMGCBQsWLFiwYMGCvQQ2HWnQ4HMXzMQeYMGCBeszWJ/BggULFuzLYbca5tMN+HYAkTb4p4399kDB9gALFixYsGDBggULFizYt8N+etFTBUgDkGnju22sp433bx0geJw8gQULFixYsGDBggULFuzLYNNCTzf804ZzW6AUIA0U0rq19wcLFixYsGDBggULFizY22HboGG6wd663zTgeBo4tJ/bRns9D7BgwYIFCxYsWLBgwYK9BDZtJKcN7Wnh2wZ6u4Dbhbo133peYMGCBQsWLFiwYMGCBXsJ7KnG+bTRns5r2rhug4IpULowf70OLFiwYMGCBQsWLFiwYF8Ou93wbjf66YI61QjfDhi2GutgwYIFCxYsWLBgwYIFC7abyE84TjW+U8g0cNkKYNqApg48wIIFCxYsWLBgwYIFCxZs9Pcp8CnA9vvTgGZ7fh+DG7BgwYIFCxYsWLBgwYJ9OWy6MZ42sNMFMG24t0HDViAxhY/rBRYsWLBgwYIFCxYsWLCXwk4b5W0DO10g22MaHHw76IkDCrBgwYIFCxYsWLBgwYL9y2G3GrwtzNPntA376YJKA5Ip2HRBgwULFixYsGDBggULFuwtsE8n0k4w3Zi3gcFWcJAGLNP7tgvqY0ABFixYsGDBggULFixYsC+HbUGn15/+flvYNOhIg5ut+YMFCxYsWLBgwYIFCxbsLbBbG+u4IVwGDKcCgOmBgfaAwfS9fw0owIIFCxYsWLBgwYIFC/alsNMbbRVgu1E9DSDiBne5cNofwq/1AQsWLFiwYMGCBQsWLNiXw44buw+/nzaY24W3Nb82ONk6EFAvcLBgwYIFCxYsWLBgwYK9BHYaELRBQAvUfr8NUtrnbB0wqAMKsGDBggULFixYsGDBgn0ZbNpg3m7Abxdi2khv69AGK20dfr0PWLBgwYIFCxYsWLBgwb4c9lTDOG1ct99vRxvEbAcu2415sGDBggULFixYsGDBgn07bBoEbBckbTS3cNv32V7I0/qCBQsWLFiwYMGCBQsW7C2wbcCwFShMF8rT+bWN+62Aon3feOGCBQsWLFiwYMGCBQsW7Mth0w13u8FuC5dCtPOdHihogbfqCxYsWLBgwYIFCxYsWLBgu9EGE9MG9qn5pgujhU3nuRZQgAULFixYsGDBggULFuxfCrvdWN7aoH+rYT09CJA2+Nv5f6wzWLBgwYIFCxYsWLBgwV4C20JsLYhpI/1bhdw+CLDdqAcLFixYsGDBggULFizYt8NubbBPN6Rb4DSgSJ83vX4aSPwaUIAFCxYsWLBgwYIFCxbsZbBPN+BbUOkG/9QB8XQBpPU4FYCABQsWLFiwYMGCBQsW7K2wWxPb3qBPG/Ip8HbwMA1IHv8dLFiwYMGCBQsWLFiwYF8Om058q+Gebszbwk0XbhqsTOux1mgHCxYsWLBgwYIFCxYs2JfCtpBtEJAWrm3onyr0tw4Y1AsALFiwYMGCBQsWLFiwYF8Om26Q043/qRfbbrCnAcF2Q35toYIFCxYsWLBgwYIFCxbsy2HbgKB98NOF0kJuNbBbyLZBPl3AYMGCBQsWLFiwYMGCBXsLbNtAnwYP08b5tNH99H1PLaTteoIFCxYsWLBgwYIFCxbsLbBbD55CTWHbhvoWdDqfY/BgwYIFCxYsWLBgwYIFewnsdjDxdMO+BfCtBTgNPNoG/uPngwULFixYsGDBggULFuxlsCnUdMOfNpi3Aoa2QT89OJD+IGJ4sGDBggULFixYsGDBgr0M9lTjPQ0g0oK2je3TjfOt4OLxAgILFixYsGDBggULFizYy2DbgGD6/e0CTIOCdiG2Bw7a+o6TJ7BgwYIFCxYsWLBgwYL9S2G/tYE/VYD2+dvBx/TAwvR6sGDBggULFixYsGDBgr0FNm2otxv7tpGfHgSYNui3g5n0utQBLFiwYMGCBQsWLFiwYG+BTUf7wK3GdzqvFLBtuE8b820wAhYsWLBgwYIFCxYsWLBgd6BPN8jbwk4XUl3wYQByPKAACxYsWLBgwYIFCxYs2L8E9qccbaGmje6tz22wMj0Q0L7f4/uBBQsWLFiwYMGCBQsW7CWwbWO8hTkVSKRBQXufaYO/DVQ+3hcsWLBgwYIFCxYsWLBgL4M91TBPg4RTjf+tgGXrh7A1wIIFCxYsWLBgwYIFCxZsBpK+eBtIPAXdWhhb750eMKjrBBYsWLBgwYIFCxYsWLBgqxdsA4unL35qAbaBxtZBghYaLFiwYMGCBQsWLFiwYG+F3QoW0gL+qcCgXbDtfdqA5XHdwYIFCxYsWLBgwYIFC/YS2HSkG+z0uq3rp39v69QGH+MfAliwYMGCBQsWLFiwYMG+HNZ41wAL1gBrgDXAGmANsC8d/wKP8gHpC4S0JwAAAABJRU5ErkJggg==">
+          </div>
+        </div>
+      
+    
+      
+        <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer noopener"
+          
+            target="_blank" href="https://t.me/share/url?url=http://example.com/2020/08/01/liaoxuefeng/01-Java%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/01-Java%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/02-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/&text=Java-01-01-02-变量和数据类型 - 何若のblog"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2020/08/01/liaoxuefeng/01-Java%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/01-Java%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/03-%E6%95%B4%E6%95%B0%E8%BF%90%E7%AE%97/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Java-01-01-03-整数运算</p>
+          <p class='content'>Java的整数运算遵循四则运算规则，可以使用任意嵌套的小括号。四则运算规则和初等数学一致。例如：
+12345678910// 四则运算public class Main &#123;    pu...</p>
+        </a>
+      
+      
+        <a class='next' href='/2020/08/01/liaoxuefeng/01-Java%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/01-Java%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80/01-Java%E7%A8%8B%E5%BA%8F%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84/'>
+          <p class='title'>Java-01-01-01-Java程序基本结构<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>我们先剖析一个完整的Java程序，它的基本结构是什么：
+123456789101112/** * 可以用来自动创建文档的注释 */public class Hello &#123;    pub...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="Java-01-01-02-变量和数据类型";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+</script>
+
+        
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        
+          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
+        
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.6" target="_blank" class="codename">Volantis</a>
+        作为主题
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2020 何若</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+  </div>
+  <div>
+    <script>
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+  
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class='option'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick="document.execCommand('copy')"><i class='fa fa-copy fa-fw'></i>复制文本</a>
+        <hr id='hr-text'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>复制链接</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>在新标签页打开</a>
+        <hr id='hr-href'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>复制图片地址</a>
+        <hr id='hr-src'>
+      </li>
+      
+        <li class='navigation'>
+          <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+        </li>
+      
+      <hr>
+      
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' href=https://volantis.js.org/faqs/
+        
+        
+        
+        
+          id="https:volantisjsorgfaqs"
+        >
+        <i class='fa fa-question fa-fw'></i> 常见问题
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' href=https://volantis.js.org/examples/
+        
+        
+        
+        
+          id="https:volantisjsorgexamples"
+        >
+        <i class='fa fa-rss fa-fw'></i> 示例博客
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' href=https://volantis.js.org/contributors/
+        
+        
+        
+        
+          id="https:volantisjsorgcontributors"
+        >
+        <i class='fa fa-fan fa-spin fa-fw'></i> 加入社区
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' href=https://github.com/volantis-x/volantis-docs/
+        
+        
+        
+        
+          id="https:githubcomvolantis-xvolantis-docs"
+        >
+        <i class='fa fa-code-branch fa-fw'></i> 本站源码
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' href=https://github.com/volantis-x/hexo-theme-volantis/
+        
+        
+        
+        
+          id="https:githubcomvolantis-xhexo-theme-volantis"
+        >
+        <i class='fa fa-code-branch fa-fw'></i> 主题源码
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' 
+        
+        
+        
+          onclick="document.execCommand('print')"
+        
+        >
+        <i class='fa fa-print fa-fw'></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          if ('' == 'true') {
+            copyText.style.display = 'block';
+            hrText.style.display = 'block';
+          }
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+
+      // 有音乐播放器
+      if ('' == true && ('home,help,examples,contributors,hr,source_docs,source_theme,hr,print,hr,music'||[]).includes('music')) {
+        // 如果有aplayer，初始化一下
+      	try {
+      		checkAPlayer();
+          updateTitle();
+      	} catch (error) {
+      		console.log(error);
+      	}
+      }
+
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script>
+      window.FPConfig = {
+        delay: 0,
+        ignoreKeywords: [],
+        maxRPS: 5,
+        hoverDelay: 25
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: path,
+      appId: "",
+      appKey: "",
+      pageSize: '10',
+      avatar: 'robohash',
+      lang: 'zh-cn',
+      visitor: 'true',
+      highlight: 'true',
+      mathJax: 'false',
+      enableQQ: 'true',
+      recordIP: 'false',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/app.min.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.1.6/source/js/search/hexo.min.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
+    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'http://example.com' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'http://example.com' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'http://example.com' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#l_cover",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+       
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+	 
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+        
+        
+        
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+	  
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>
